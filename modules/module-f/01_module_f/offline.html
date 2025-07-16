@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline page</title>
+
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 90%;
+        max-width: 992px;
+      }
+      .page-header {
+        font-weight: bold;
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .font-medium {
+        font-weight: 500;
+      }
+      .read-it-loud-button {
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        color: white;
+        background-color: #0369a1;
+        transition: 300ms;
+      }
+      .read-it-loud-button:hover {
+        background-color: #38bdf8;
+      }
+      .error-text {
+        text-align: center;
+        color: rgb(192, 31, 31);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main-content">
+      <section id="Essential-information-section">
+        <div class="container">
+          <h1 class="page-header">Essential Information</h1>
+          <p className="font-medium">Contact: 04 72 10 30 30</p>
+          <p className="font-medium">
+            Address: Mairie de Lyon, 69205 Lyon cedex 01
+          </p>
+          <button class="read-it-loud-button" onClick="{handleReadOutLoud}">
+            Read it Loud
+          </button>
+          <p class="error-text">
+            Currently you're in offline page, please check your internet
+            connection and try again
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const readOutLoudBtn = document.querySelector(".read-it-loud-button");
+      readOutLoudBtn.addEventListener("click", handleReadOutLoud);
+
+      function handleReadOutLoud() {
+        const TEXT =
+          "Contact: 04 72 10 30 30, Address: Mairie de Lyon, 69205 Lyon cedex 01";
+        const LANG = "fr-FR";
+        const READING_SPEED = 1;
+        const VOICE_TONE = 1;
+
+        const message = new SpeechSynthesisUtterance(TEXT);
+
+        message.lang = LANG;
+
+        message.rate = READING_SPEED;
+
+        message.pitch = VOICE_TONE;
+
+        window.speechSynthesis.speak(message);
+      }
+    </script>
+  </body>
+</html>

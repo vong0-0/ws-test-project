@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  [data-theme="light"] {
+    --bg-clr: #fff;
+    --fg-clr: #333;
+  }
+  [data-theme="dark"] {
+    --bg-clr: #333;
+    --fg-clr: #fff;
+  }
+
+  body {
+    background-color: var(--bg-clr);
+    color: var(--fg-clr);
+    transition: color 0.3s;
+  }
+}
+
+@layer components {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  /* ===== Buttons ===== */
+  .nav-link-btn {
+    @apply border-2 border-solid border-white dark:border-black text-black dark:text-white bg-white dark:bg-black transition-all duration-300;
+
+    &.active {
+      color: var(--bg-clr);
+      background-color: var(--fg-clr);
+      box-shadow: 0 5px 0 var(--bg-clr);
+      transform: translateY(-5px);
+    }
+
+    &:hover {
+      color: var(--bg-clr);
+      background-color: var(--fg-clr);
+      box-shadow: 0 5px 0 var(--bg-clr);
+      transform: translateY(-5px);
+    }
+  }
+
+  .get-started-btn {
+    @apply px-8 py-4 border border-solid border-black dark:border-white rounded-lg shadow-lg font-bold transition-all duration-300;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 0 var(--fg-clr);
+    }
+
+    &:active {
+      transform: translateY(0px);
+      box-shadow: 0 0 0 var(--fg-clr);
+    }
+  }
+
+  /* ===== Buttons ===== */
+}

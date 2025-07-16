@@ -1,0 +1,142 @@
+# Backend - Heritage Travel Site API
+
+This is **Module C - WorldSkills Web Technologies's** backend side. Which in backend will serves API endpoints for heritage pages, parsing `.txt` and `.html` content files with metadata.
+
+## Features
+
+- Provides API to fetch all pages or a single page
+- Parses front-matter metadata
+- Returns structured JSON data for frontend rendering
+
+# Tech Stack
+
+- Node.js
+- Express.js
+- CORS for cross-origin requests
+
+## API Endpoints
+
+| Method | Endpoint              | Description                       |
+| ------ | --------------------- | --------------------------------- |
+| GET    | /01_module_c/api/page | Get a single page by `path` query |
+| GET    | /01_module_c/api/page | Get all pages                     |
+
+### Example: Fetch for a single page
+
+```bash
+GET http://ws01.worldskills.org:3000/01_module_c/api/page?path=2023-10-20-walk-through%20the%20city
+```
+
+**Response**
+
+```json
+{
+  "type": "txt",
+  "frontMatter": {
+    "title": "Wander Through Time: Uncover Lyon's Secrets on Foot",
+    "tags": "Lyon, Walking, Roman",
+    "summary": "Hey travel fam!  Ready to dive deep into Lyon's rich history, vibrant culture, and hidden gems?",
+    "cover": "lyon-street.jpg"
+  },
+  "date": "2023-10-20",
+  "name": "walk through the city",
+  "htmlTags": [],
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Hey travel fam!  Ready to dive deep into Lyon's rich history, vibrant culture, and hidden gems?  Forget the tourist buses,  Lyon is best explored on foot! Join a guided walking tour and unlock the city's magic like a local.",
+      "bold": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Here's why walking tours are the perfect way to experience Lyon:",
+      "bold": true
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "text": "Storytelling Experts:",
+          "bold": true,
+          "desc": "Guides bring history to life, sharing captivating tales of silk traders, Roman ruins, and Renaissance grandeur."
+        },
+        {
+          "text": "Hidden Gems:",
+          "bold": true,
+          "desc": "Discover secret passages called \"traboules,\" charming courtyards, and vibrant neighborhoods tucked away from the main tourist trail."
+        },
+        {
+          "text": "Culinary Delights:",
+          "bold": true,
+          "desc": "Sample local delicacies like traditional bouchons, indulge in a \"quenelle\" tasting, or learn about Lyon's famous food markets."
+        },
+        {
+          "text": "Personalized Experience:",
+          "bold": true,
+          "desc": "Small group tours offer a more intimate setting, allowing you to ask questions and engage with your guide."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Popular Walking Tour Themes:",
+      "bold": true
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "text": "Vieux Lyon:",
+          "bold": true,
+          "desc": "Explore the heart of the city, wander through cobblestone streets, admire Renaissance architecture, and discover the magic of the \"traboules.\""
+        },
+        {
+          "text": "Roman Lyon:",
+          "bold": true,
+          "desc": "Journey back in time to the Roman era, visit ancient ruins, and learn about the city's origins as Lugdunum."
+        },
+        {
+          "text": "Silk History:",
+          "bold": true,
+          "desc": "Unravel Lyon's legacy as the \"City of Silk,\" learn about the traditional weaving techniques, and visit historic silk factories."
+        },
+        {
+          "text": "Foodie Adventures:",
+          "bold": true,
+          "desc": "Embark on a culinary journey, sample Lyon's specialties, and discover the secrets behind the city's renowned gastronomy."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Tips for Choosing a Walking Tour:",
+      "bold": true
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "text": "Read Reviews:",
+          "bold": true,
+          "desc": "Check online reviews and ratings to find reputable tour companies."
+        },
+        {
+          "text": "Consider Your Interests:",
+          "bold": true,
+          "desc": "Choose a tour that aligns with your passions, whether it's history, food, art, or architecture."
+        },
+        {
+          "text": "Book in Advance:",
+          "bold": true,
+          "desc": "Popular tours tend to fill up quickly, especially during peak season."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Ready to uncover Lyon's hidden treasures?  Lace up your walking shoes and join a tour for an unforgettable experience!",
+      "bold": true
+    }
+  ]
+}
+```

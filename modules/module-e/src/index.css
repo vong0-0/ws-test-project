@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  button:disabled {
+    color: rgb(255, 255, 255) !important; /* text-white */
+    background-color: #cbcccd !important; /* bg-blue-400 */
+    border-color: #cbcccd;
+    cursor: not-allowed !important; /* cursor-not-allowed */
+  }
+
+  .scale-up-animation {
+    animation: scaleUp 0.5s ease-in-out;
+  }
+
+  .slide-from-left-animation {
+    animation: slideFromLeft 0.5s ease-in-out;
+  }
+  .slide-in-from-bottom-animation {
+    animation: fadeInFromBottom 0.5s ease-in-out forwards;
+  }
+  .slide-in-from-left-animation {
+    animation: fadeInFromLeft 0.5s ease-in-out;
+  }
+  @keyframes scaleUp {
+    0% {
+      scale: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideFromLeft {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes fadeInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  @keyframes fadeInFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(200%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+}
