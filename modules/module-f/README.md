@@ -1,4 +1,4 @@
-# Module C - Heritage Travel Site
+# Module F - Lyon Tourist Page
 
 ## Competitor information
 
