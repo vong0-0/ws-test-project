@@ -37,18 +37,6 @@ export default function VideoPlayback() {
     }
   }, []);
 
-  // Check the page is visible or not
-  useEffect(() => {
-    function handleVisibleChange() {
-      setIsPageVisible(!isPageVisible);
-    }
-
-    document.addEventListener("visibilitychange", handleVisibleChange);
-
-    return () =>
-      document.addEventListener("visibilitychange", handleVisibleChange);
-  }, []);
-
   return (
     <section id="video-section" className="w-full h-screen">
       <video
